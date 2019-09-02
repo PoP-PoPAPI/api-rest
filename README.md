@@ -9,7 +9,7 @@
 [![Total Downloads][ico-downloads]][link-downloads]
 -->
 
-Create REST endpoints in the PoP API
+It adds REST endpoints to the [PoP API](https://github.com/getpop/api).
 
 ## Install
 
