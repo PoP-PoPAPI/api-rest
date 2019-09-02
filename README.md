@@ -16,7 +16,18 @@ Create REST endpoints in the PoP API
 Via Composer
 
 ``` bash
-$ composer require getpop/api-rest
+$ composer require getpop/api-rest dev-master
+```
+
+**Note:** Your `composer.json` file must have the configuration below to accept minimum stability `"dev"` (there are no releases for PoP yet, and the code is installed directly from the `master` branch):
+
+```javascript
+{
+    ...
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    ...
+}
 ```
 
 <!--
