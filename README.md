@@ -52,12 +52,14 @@ RewriteRule ^api/rest/?$ /?scheme=api&datastructure=rest [L,P,QSA]
 </IfModule>
 ```
 
-<!--
 ## Usage
 
-``` php
-```
--->
+Append the REST API endpoint to any URL: `.../api/rest/`
+
+Example:
+
+- [/2013/01/11/markup-html-tags-and-formatting/api/rest/](https://nextapi.getpop.org/2013/01/11/markup-html-tags-and-formatting/api/rest/)
+- [/posts/api/rest/](https://nextapi.getpop.org/posts/api/rest/)
 
 ## Change log
 
