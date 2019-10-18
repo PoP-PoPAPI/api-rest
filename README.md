@@ -9,7 +9,7 @@
 [![Total Downloads][ico-downloads]][link-downloads]
 -->
 
-It adds REST endpoints to the [PoP API](https://github.com/getpop/api).
+It enables to add REST endpoints to retrieve data for any URL-based resource. It is based on the [PoP API](https://github.com/getpop/api) package.
 
 ## Install
 
@@ -54,12 +54,25 @@ RewriteRule ^api/rest/?$ /?scheme=api&datastructure=rest [L,P,QSA]
 
 ## Usage
 
-Append the REST API endpoint to any URL: `.../api/rest/`
+Append `/api/rest/` to the URL to fetch the pre-defined fields, and optionally add a `query` URL parameter to retrieve specific data fields using [this syntax](https://github.com/getpop/field-query).
 
-Example:
+Examples:
 
-- [/2013/01/11/markup-html-tags-and-formatting/api/rest/](https://nextapi.getpop.org/2013/01/11/markup-html-tags-and-formatting/api/rest/)
-- [/posts/api/rest/](https://nextapi.getpop.org/posts/api/rest/)
+_**Single post, default fields**_:<br/>
+[{single-post-url}/api/rest/](https://nextapi.getpop.org/2013/01/11/markup-html-tags-and-formatting/api/rest/)
+
+_**Single post, custom fields**_:<br/>
+[{single-post-url}/api/rest/?query=id|title|author.id|name](https://nextapi.getpop.org/2013/01/11/markup-html-tags-and-formatting/api/rest/?query=id|title|author.id|name)
+
+_**Collection of posts, default fields**_:<br/>
+[{post-list-url}/api/rest/](https://nextapi.getpop.org/posts/api/rest/)
+
+_**Collection of posts, custom fields**_:<br/>
+[{post-list-url}/api/rest/?query=id|title|author.id|name](https://nextapi.getpop.org/posts/api/rest/?query=id|title|author.id|name)
+
+## More information
+
+Please refer to package [API](https://github.com/getpop/api), on which the REST API is based, and which contains plenty of extra documentation.
 
 ## Change log
 
