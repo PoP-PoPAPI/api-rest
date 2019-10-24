@@ -1,0 +1,4 @@
+services:
+    PoP\RESTAPI\RouteModuleProcessors\:
+        resource: '../src/RouteModuleProcessors/*'
+        public: true
