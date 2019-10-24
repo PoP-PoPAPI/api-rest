@@ -43,7 +43,7 @@ class EntryRouteModuleProcessor extends AbstractEntryRouteModuleProcessor
 
             // Single endpoint REST API
             $ret[RouteNatures::HOME][] = [
-                'module' => [PoP_API_Module_Processor_FieldDataloads::class, PoP_API_Module_Processor_FieldDataloads::MODULE_DATALOAD_DATAQUERY_ROOT_FIELDS, ['fields' => isset($vars['query']) ? $vars['query'] : self::getRESTFields()]],
+                'module' => [\PoP_API_Module_Processor_FieldDataloads::class, \PoP_API_Module_Processor_FieldDataloads::MODULE_DATALOAD_DATAQUERY_ROOT_FIELDS, ['fields' => isset($vars['query']) ? $vars['query'] : self::getRESTFields()]],
                 'conditions' => [
                     'scheme' => POP_SCHEME_API,
                     'datastructure' => GD_DATALOAD_DATASTRUCTURE_REST,
