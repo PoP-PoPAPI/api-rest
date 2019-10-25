@@ -2,6 +2,7 @@
 namespace PoP\RESTAPI;
 
 use PoP\Root\Component\AbstractComponent;
+use PoP\Root\Component\CanDisableComponentTrait;
 use PoP\RESTAPI\Config\ServiceConfiguration;
 use PoP\Root\Component\YAMLServicesTrait;
 use PoP\API\Component as APIComponent;
@@ -11,9 +12,7 @@ use PoP\API\Component as APIComponent;
  */
 class Component extends AbstractComponent
 {
-    protected static $enabled;
-
-    use YAMLServicesTrait;
+    use YAMLServicesTrait, CanDisableComponentTrait;
     // const VERSION = '0.1.0';
 
     /**
@@ -28,17 +27,8 @@ class Component extends AbstractComponent
         }
     }
 
-    protected static function initEnabled()
+    protected static function resolveEnabled()
     {
-        self::$enabled = APIComponent::isEnabled() && !Environment::disableRESTAPI();
-    }
-
-    public static function isEnabled()
-    {
-        // This is needed for if asking if this component is enabled before it has been initialized
-        if (is_null(self::$enabled)) {
-            self::initEnabled();
-        }
-        return self::$enabled;
+        return APIComponent::isEnabled() && !Environment::disableRESTAPI();
     }
 }
