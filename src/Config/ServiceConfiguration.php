@@ -16,5 +16,11 @@ class ServiceConfiguration
             'PoP\\RESTAPI\\RouteModuleProcessors',
             'add'
         );
+
+        ContainerBuilderUtils::injectServicesIntoService(
+            'data_structure_manager',
+            'PoP\\RESTAPI\\DataStructureFormatters',
+            'add'
+        );
     }
 }
