@@ -6,6 +6,7 @@ use PoP\ComponentModel\Engine_Vars;
 use PoP\Hooks\Facades\HooksAPIFacade;
 use PoP\API\Facades\FieldQueryConvertorFacade;
 use PoP\Routing\RouteNatures;
+use PoP\RESTAPI\DataStructureFormatters\RESTDataStructureFormatter;
 
 class EntryRouteModuleProcessor extends AbstractEntryRouteModuleProcessor
 {
@@ -40,7 +41,7 @@ class EntryRouteModuleProcessor extends AbstractEntryRouteModuleProcessor
             'module' => [\PoP_API_Module_Processor_FieldDataloads::class, \PoP_API_Module_Processor_FieldDataloads::MODULE_DATALOAD_DATAQUERY_ROOT_FIELDS, ['fields' => isset($vars['query']) ? $vars['query'] : self::getRESTFields()]],
             'conditions' => [
                 'scheme' => POP_SCHEME_API,
-                'datastructure' => GD_DATALOAD_DATASTRUCTURE_REST,
+                'datastructure' => RESTDataStructureFormatter::getName(),
             ],
         ];
 
