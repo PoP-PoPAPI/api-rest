@@ -2,3 +2,7 @@ services:
     PoP\RESTAPI\RouteModuleProcessors\:
         resource: '../src/RouteModuleProcessors/*'
         public: true
+
+    PoP\RESTAPI\DataStructureFormatters\:
+        resource: '../src/DataStructureFormatters/*'
+        public: true
