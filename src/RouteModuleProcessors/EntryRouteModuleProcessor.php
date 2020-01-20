@@ -28,7 +28,7 @@ class EntryRouteModuleProcessor extends AbstractEntryRouteModuleProcessor
         if (is_null(self::$restFieldsQuery)) {
             self::$restFieldsQuery = (string) HooksAPIFacade::getInstance()->applyFilters(
                 'Root:RESTFields',
-                '__fullSchema'
+                'fullSchema'
             );
         }
         return self::$restFieldsQuery;
