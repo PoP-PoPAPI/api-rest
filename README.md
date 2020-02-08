@@ -30,6 +30,7 @@ $ composer require getpop/api-rest dev-master
 }
 ```
 
+<!--
 ### Enable pretty permalinks
 
 Add the following code in the `.htaccess` file to enable API endpoint `/api/rest/`:
@@ -51,6 +52,7 @@ RewriteCond %{SCRIPT_FILENAME} !-f
 RewriteRule ^api/rest/?$ /?scheme=api&datastructure=rest [L,P,QSA]
 </IfModule>
 ```
+-->
 
 ## Usage
 
