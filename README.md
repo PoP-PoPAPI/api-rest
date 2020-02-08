@@ -30,9 +30,9 @@ $ composer require getpop/api-rest dev-master
 }
 ```
 
-<!--
-### Enable pretty permalinks
+To enable pretty API endpoint `/api/rest/`, follow the instructions [here](https://github.com/getpop/api#enable-pretty-permalinks)
 
+<!--
 Add the following code in the `.htaccess` file to enable API endpoint `/api/rest/`:
 
 ```apache
