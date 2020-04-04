@@ -2,7 +2,7 @@
 namespace PoP\RESTAPI\RouteModuleProcessors;
 
 use PoP\ModuleRouting\AbstractEntryRouteModuleProcessor;
-use PoP\ComponentModel\Engine_Vars;
+use PoP\ComponentModel\State\ApplicationState;
 use PoP\Hooks\Facades\HooksAPIFacade;
 use PoP\API\Facades\FieldQueryConvertorFacade;
 use PoP\Routing\RouteNatures;
@@ -37,7 +37,7 @@ class EntryRouteModuleProcessor extends AbstractEntryRouteModuleProcessor
     {
         $ret = array();
 
-        $vars = Engine_Vars::getVars();
+        $vars = ApplicationState::getVars();
         $ret[RouteNatures::HOME][] = [
             'module' => [RootRelationalFieldDataloadModuleProcessor::class, RootRelationalFieldDataloadModuleProcessor::MODULE_DATALOAD_RELATIONALFIELDS_ROOT, ['fields' => isset($vars['query']) ? $vars['query'] : self::getRESTFields()]],
             'conditions' => [
