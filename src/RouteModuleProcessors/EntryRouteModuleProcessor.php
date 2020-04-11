@@ -7,7 +7,7 @@ use PoP\Hooks\Facades\HooksAPIFacade;
 use PoP\API\Facades\FieldQueryConvertorFacade;
 use PoP\Routing\RouteNatures;
 use PoP\RESTAPI\DataStructureFormatters\RESTDataStructureFormatter;
-use PoP\Engine\ModuleProcessors\RootRelationalFieldDataloadModuleProcessor;
+use PoP\API\ModuleProcessors\RootRelationalFieldDataloadModuleProcessor;
 
 class EntryRouteModuleProcessor extends AbstractEntryRouteModuleProcessor
 {
