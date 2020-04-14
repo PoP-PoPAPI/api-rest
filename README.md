@@ -16,18 +16,7 @@ It enables to add REST endpoints to retrieve data for any URL-based resource. It
 Via Composer
 
 ``` bash
-composer require getpop/api-rest dev-master
-```
-
-**Note:** Your `composer.json` file must have the configuration below to accept minimum stability `"dev"` (there are no releases for PoP yet, and the code is installed directly from the `master` branch):
-
-```javascript
-{
-    ...
-    "minimum-stability": "dev",
-    "prefer-stable": true,
-    ...
-}
+composer require getpop/api-rest
 ```
 
 To enable pretty API endpoint `/api/rest/`, follow the instructions [here](https://github.com/getpop/api#enable-pretty-permalinks)
