@@ -1,2 +1,2 @@
 <?php
-\PoP\RESTAPI\Component::init();
+//\PoP\RESTAPI\Component::initialize();
