@@ -46,6 +46,12 @@ RewriteRule ^api/rest/?$ /?scheme=api&datastructure=rest [L,P,QSA]
 
 ## Usage
 
+Initialize the component:
+
+``` php
+\PoP\RESTAPI\Component::initialize();
+```
+
 Append `/api/rest/` to the URL to fetch the pre-defined fields, and optionally add a `query` URL parameter to retrieve specific data fields using [this syntax](https://github.com/getpop/field-query).
 
 Examples:
