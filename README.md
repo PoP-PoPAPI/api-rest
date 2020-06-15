@@ -20,12 +20,25 @@ Via Composer
 composer require getpop/api-rest
 ```
 
-To enable pretty API endpoint `/api/rest/`, follow the instructions [here](https://github.com/getpop/api#enable-pretty-permalinks)
+<!-- To enable pretty API endpoint `/api/rest/`, follow the instructions [here](https://github.com/getpop/api#enable-pretty-permalinks) -->
 
-<!--
-Add the following code in the `.htaccess` file to enable API endpoint `/api/rest/`:
+Make sure the Apache server has modules [`proxy`](https://httpd.apache.org/docs/current/mod/mod_proxy.html) and [`proxy_http`](https://httpd.apache.org/docs/current/mod/mod_proxy_http.html) installed and enabled. This enables configuration `"P"` in `"[L,P,QSA]"` from the rewrite rule below.
+
+Add the following code in the `.htaccess` add API endpoint `/api/rest/` at the end of the resource page URL:
 
 ```apache
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteBase /
+
+# Rewrite from /some-url/api/rest/ to /some-url/?scheme=api&datastructure=rest
+RewriteCond %{SCRIPT_FILENAME} !-d
+RewriteCond %{SCRIPT_FILENAME} !-f
+RewriteRule ^(.*)/api/rest/?$ /$1/?scheme=api&datastructure=rest [L,P,QSA]
+</IfModule>
+```
+
+<!-- ```apache
 <IfModule mod_rewrite.c>
 RewriteEngine On
 RewriteBase /
@@ -41,8 +54,7 @@ RewriteCond %{SCRIPT_FILENAME} !-d
 RewriteCond %{SCRIPT_FILENAME} !-f
 RewriteRule ^api/rest/?$ /?scheme=api&datastructure=rest [L,P,QSA]
 </IfModule>
-```
--->
+``` -->
 
 ## Usage
 
