@@ -22,9 +22,13 @@ composer require getpop/api-rest
 
 <!-- To enable pretty API endpoint `/api/rest/`, follow the instructions [here](https://github.com/getpop/api#enable-pretty-permalinks) -->
 
+### Enable pretty permalinks
+
+#### Apache
+
 Make sure the Apache server has modules [`proxy`](https://httpd.apache.org/docs/current/mod/mod_proxy.html) and [`proxy_http`](https://httpd.apache.org/docs/current/mod/mod_proxy_http.html) installed and enabled. This enables configuration `"P"` in `"[L,P,QSA]"` from the rewrite rule below.
 
-Add the following code in the `.htaccess` add API endpoint `/api/rest/` at the end of the resource page URL:
+Add the following code in the `.htaccess` to support API endpoint `/api/rest/` at the end of the resource page URL:
 
 ```apache
 <IfModule mod_rewrite.c>
@@ -36,6 +40,24 @@ RewriteCond %{SCRIPT_FILENAME} !-d
 RewriteCond %{SCRIPT_FILENAME} !-f
 RewriteRule ^(.*)/api/rest/?$ /$1/?scheme=api&datastructure=rest [L,P,QSA]
 </IfModule>
+```
+
+#### Nginx
+
+Add the following code in the Nginx configuration's `server` entry, to enable API endpoint `/api/rest/`. Please notice that the resolver below is the one for Docker; replace this value for your environment.
+
+```nginx
+location ~ ^(.*)/api/rest/?$ {
+    # Resolver for Docker. Change to your own
+    resolver 127.0.0.11 [::1];
+    # If adding $args and it's empty, it does a redirect.
+    # Then, add $args only if not empty
+    set $redirect_uri "$scheme://$server_name$1/?scheme=api&datastructure=rest";
+    if ($args) {
+        set $redirect_uri "$scheme://$server_name$1/?$args&scheme=api&datastructure=rest";
+    }
+    proxy_pass $redirect_uri;
+}
 ```
 
 <!-- ```apache
