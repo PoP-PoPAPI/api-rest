@@ -11,6 +11,7 @@ use PoP\API\Facades\FieldQueryConvertorFacade;
 use PoP\Routing\RouteNatures;
 use PoP\RESTAPI\DataStructureFormatters\RESTDataStructureFormatter;
 use PoP\API\ModuleProcessors\RootRelationalFieldDataloadModuleProcessor;
+use PoP\API\Response\Schemes as APISchemes;
 
 class EntryRouteModuleProcessor extends AbstractEntryRouteModuleProcessor
 {
@@ -46,7 +47,7 @@ class EntryRouteModuleProcessor extends AbstractEntryRouteModuleProcessor
         $ret[RouteNatures::HOME][] = [
             'module' => [RootRelationalFieldDataloadModuleProcessor::class, RootRelationalFieldDataloadModuleProcessor::MODULE_DATALOAD_RELATIONALFIELDS_ROOT, ['fields' => isset($vars['query']) ? $vars['query'] : self::getRESTFields()]],
             'conditions' => [
-                'scheme' => POP_SCHEME_API,
+                'scheme' => APISchemes::API,
                 'datastructure' => RESTDataStructureFormatter::getName(),
             ],
         ];
