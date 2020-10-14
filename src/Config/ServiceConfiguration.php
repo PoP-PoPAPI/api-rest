@@ -4,8 +4,10 @@ declare(strict_types=1);
 
 namespace PoP\RESTAPI\Config;
 
-use PoP\ComponentModel\Container\ContainerBuilderUtils;
 use PoP\Root\Component\PHPServiceConfigurationTrait;
+use PoP\ComponentModel\Container\ContainerBuilderUtils;
+use PoP\ModuleRouting\RouteModuleProcessorManagerInterface;
+use PoP\ComponentModel\DataStructure\DataStructureManagerInterface;
 
 class ServiceConfiguration
 {
@@ -15,13 +17,13 @@ class ServiceConfiguration
     {
         // Add RouteModuleProcessors to the Manager
         ContainerBuilderUtils::injectServicesIntoService(
-            'route_module_processor_manager',
+            RouteModuleProcessorManagerInterface::class,
             'PoP\\RESTAPI\\RouteModuleProcessors',
             'add'
         );
 
         ContainerBuilderUtils::injectServicesIntoService(
-            'data_structure_manager',
+            DataStructureManagerInterface::class,
             'PoP\\RESTAPI\\DataStructureFormatters',
             'add'
         );
