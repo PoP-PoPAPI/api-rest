@@ -21,8 +21,8 @@ class RESTDataStructureFormatter extends MirrorQueryDataStructureFormatter
         // Get the fields from the entry module's module atts
         $engine = EngineFacade::getInstance();
         $entryModule = $engine->getEntryModule();
-        if ($moduleAtts = $entryModule[2]) {
-            if ($fields = $moduleAtts['fields']) {
+        if ($moduleAtts = $entryModule[2] ?? null) {
+            if ($fields = $moduleAtts['fields'] ?? null) {
                 return $fields;
             }
         }
