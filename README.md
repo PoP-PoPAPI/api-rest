@@ -20,6 +20,10 @@ Via Composer
 composer require getpop/api-rest
 ```
 
+## Development
+
+The source code is hosted on the [PoP monorepo](https://github.com/leoloso/PoP), under [`API/packages/api-rest`](https://github.com/leoloso/PoP/tree/master/layers/API/packages/api-rest).
+
 <!-- To enable pretty API endpoint `/api/rest/`, follow the instructions [here](https://github.com/getpop/api#enable-pretty-permalinks) -->
 
 ### Enable pretty permalinks
@@ -104,13 +108,9 @@ _**Collection of posts, default fields**_:<br/>
 _**Collection of posts, custom fields**_:<br/>
 [{post-list-url}/api/rest/?query=id|title|author.id|name](https://nextapi.getpop.org/posts/api/rest/?query=id|title|author.id|name)
 
-## More information
+<!-- ## More information
 
-Please refer to package [API](https://github.com/getpop/api), on which the REST API is based, and which contains plenty of extra documentation.
-
----
----
----
+Please refer to package [API](https://github.com/getpop/api), on which the REST API is based, and which contains plenty of extra documentation. -->
 
 ## PHP versions
 
@@ -128,7 +128,7 @@ Same as the [Supported PHP features for `getpop/root`](https://github.com/getpop
 Via [Rector](https://github.com/rectorphp/rector) (dry-run mode):
 
 ```bash
-composer downgrade-code
+composer preview-code-downgrade
 ```
 
 ## Standards
@@ -189,4 +189,4 @@ The MIT License (MIT). Please see [License File](LICENSE.md) for more informatio
 [link-code-quality]: https://scrutinizer-ci.com/g/getpop/api-rest
 [link-downloads]: https://packagist.org/packages/getpop/api-rest
 [link-author]: https://github.com/leoloso
-[link-contributors]: ../../contributors
+[link-contributors]: ../../../../../../contributors
