@@ -25,14 +25,15 @@ class RESTDataStructureFormatter extends MirrorQueryDataStructureFormatter
         return 'rest';
     }
 
-    protected function getFields()
+    /**
+     * @return array<string|int,string>
+     */
+    protected function getFields(): array
     {
-        // Get the fields from the entry module's module atts
+        // Get the fields from the entry component atts
         $entryComponent = $this->getEngine()->getEntryComponent();
-        if ($moduleAtts = $entryComponent[2] ?? null) {
-            if ($fields = $moduleAtts['fields'] ?? null) {
-                return $fields;
-            }
+        if ($fields = $entryComponent->atts['fields'] ?? null) {
+            return $fields;
         }
 
         return parent::getFields();
